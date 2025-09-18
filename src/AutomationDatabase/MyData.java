@@ -1,4 +1,4 @@
-package AutomationTestStore;
+package AutomationDatabase;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -25,18 +25,22 @@ public class MyData {
 	String CustomerLastName;
 	String Email;
 	String Password;
+	String PhoneNumber;
+	String AddLine1;
+	String AddLine2;
+
   
 	@BeforeTest
 	public void SetUp() throws SQLException
 	{
-		driver.get(SignUpPage);	
-		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(3));	
-		driver.manage().window().maximize();
+		//driver.get(SignUpPage);	
+		//driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(3));	
+		//driver.manage().window().maximize();
 		conn=DriverManager.getConnection("jdbc:mysql://localhost:3306/classicmodels","root","0000");
 		
 	}
 	
-	@Test(priority=1)
+	@Test(priority=1,enabled=true)
 	public void AddRecord() throws SQLException
 	{
 		String query= "INSERT INTO customers (customerNumber,customerName,contactLastName,contactFirstName, phone, addressLine1,addressLine2,city,state,postalCode,country,salesRepEmployeeNumber, creditLimit) VALUES (500,'TechZone Ltd.','Nofal','Mohammad','+962798648671','123 Market Street','Suite 200','San Francisco','CA','94105','USA',1370,150000.00)";
@@ -60,18 +64,20 @@ public class MyData {
 		    CustomerFirstName=rs.getString("contactFirstName").toString().trim();
 			CustomerLastName=rs.getString("contactLastName").toString().trim();
 			Email=CustomerFirstName+CustomerLastName+"@gmail.com";
+			PhoneNumber=rs.getString("phone");
 			Password="P@$sword";
+			AddLine1=rs.getString("addressLine1");
+			AddLine2=rs.getString("addressLine2");
 			
 			System.out.println(customerNumberInDatabase);
 			System.out.println(CustomerFirstName);
 			System.out.println(CustomerLastName);
 			System.out.println(Email);
-			System.out.println(Password);
-			System.out.println(Password);
+			System.out.println(Password);		
 		}
-		driver.findElement(By.id("AccountFrm_firstname")).sendKeys(CustomerFirstName);
-		driver.findElement(By.id("AccountFrm_lastname")).sendKeys(CustomerLastName);
-		driver.findElement(By.id("AccountFrm_email")).sendKeys(Email);
+		//driver.findElement(By.id("AccountFrm_firstname")).sendKeys(CustomerFirstName);
+		//driver.findElement(By.id("AccountFrm_lastname")).sendKeys(CustomerLastName);
+		//driver.findElement(By.id("AccountFrm_email")).sendKeys(Email);
 		
 		
 	}
@@ -86,7 +92,7 @@ public class MyData {
 		
 	}
 	
-	@Test(priority=4)
+	@Test(priority=4,enabled=true)
 	public void DeleteData() throws SQLException
 	{
 		String query= "delete from customers where customerNumber=500";

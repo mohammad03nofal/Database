@@ -3,12 +3,12 @@
 <suite name="Failed suite [Default suite]" guice-stage="DEVELOPMENT">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="AutomationTestStore.TestCases">
+      <class name="AutomationDatabase.MyTestCases">
         <methods>
           <include name="SetUp"/>
-          <include name="ReadData"/>
+          <include name="AddRecord"/>
         </methods>
-      </class> <!-- AutomationTestStore.TestCases -->
+      </class> <!-- AutomationDatabase.MyTestCases -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->
