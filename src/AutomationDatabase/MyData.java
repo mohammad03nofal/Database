@@ -24,18 +24,19 @@ public class MyData {
 	String CustomerFirstName;
 	String CustomerLastName;
 	String Email;
-	String Password;
 	String PhoneNumber;
 	String AddLine1;
 	String AddLine2;
-
+	String PostCode;
+	String loginnam;
+	String pass;
+	String confpass;
   
 	@BeforeTest
 	public void SetUp() throws SQLException
 	{
-		//driver.get(SignUpPage);	
-		//driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(3));	
-		//driver.manage().window().maximize();
+		driver.get(Website);	
+		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(3));	
 		conn=DriverManager.getConnection("jdbc:mysql://localhost:3306/classicmodels","root","0000");
 		
 	}
@@ -65,15 +66,20 @@ public class MyData {
 			CustomerLastName=rs.getString("contactLastName").toString().trim();
 			Email=CustomerFirstName+CustomerLastName+"@gmail.com";
 			PhoneNumber=rs.getString("phone");
-			Password="P@$sword";
 			AddLine1=rs.getString("addressLine1");
 			AddLine2=rs.getString("addressLine2");
+			PostCode=rs.getString("postalCode");
+			loginnam=CustomerFirstName+CustomerLastName+customerNumberInDatabase;
+			pass="P@$sword";
+			confpass="P@$sword";
+            //salesNumber=rs.getString("salesRepEmployeeNumber");
+            //Credit_Limit=rs.getString("creditLimit");
 			
 			System.out.println(customerNumberInDatabase);
 			System.out.println(CustomerFirstName);
 			System.out.println(CustomerLastName);
 			System.out.println(Email);
-			System.out.println(Password);		
+			System.out.println(pass);		
 		}
 		//driver.findElement(By.id("AccountFrm_firstname")).sendKeys(CustomerFirstName);
 		//driver.findElement(By.id("AccountFrm_lastname")).sendKeys(CustomerLastName);
@@ -85,7 +91,7 @@ public class MyData {
 	@Test(priority=2)
 	public void UpdateData() throws SQLException
 	{
-		String query= "update customers set contactFirstName='Mazen'where customerNumber=500";
+		String query= "update customers set contactFirstName='Rola' , country ='Sweden' where customerNumber=500";
 		stmt=conn.createStatement();
 		int updatedrow=stmt.executeUpdate(query);
 		
