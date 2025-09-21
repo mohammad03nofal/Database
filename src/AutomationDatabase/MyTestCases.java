@@ -21,10 +21,11 @@ import org.testng.annotations.Test;
 public class MyTestCases extends MyData {
 	//WebDriver driver = new EdgeDriver();
 	//String Website="https://automationteststore.com/";
-	String SignUpPage="https://automationteststore.com/index.php?rt=account/create";
+	//String SignUpPage="https://automationteststore.com/index.php?rt=account/create";
 	//String LogoutPage="https://automationteststore.com/index.php?rt=account/logout";
-	String LoginPage="https://automationteststore.com/index.php?rt=account/login";
-	
+	//String LoginPage="https://automationteststore.com/index.php?rt=account/login";
+	Random rand=new Random();
+
 	
 	
 	@Test(priority=5,enabled=false)
@@ -42,7 +43,7 @@ public class MyTestCases extends MyData {
 		WebElement State=driver.findElement(By.id("AccountFrm_zone_id"));
 		Select CountrySelection =new Select(Country);
 		Select StateSelection =new Select(State);
-		CountrySelection.selectByVisibleText("Sweden");
+		CountrySelection.selectByVisibleText(CustomerCountryInDataBase);
 		Thread.sleep(2000);
 		StateSelection.selectByIndex(1);
 		List <WebElement> AllStates = State.findElements(By.tagName("option"));
@@ -93,17 +94,60 @@ public class MyTestCases extends MyData {
 	 
 	 Login_Name.sendKeys(loginnam);
 	 password.sendKeys(pass);
-	 Thread.sleep(5000);
+	 Thread.sleep(2000);
 	 LoginButton.click();
-	 
-	 
-	 
-	 
+	 Thread.sleep(3000);
+	 String WelcomeMessage="Welcome back "+CustomerFirstName;
+	 boolean actualValue=driver.getPageSource().contains(WelcomeMessage);
+	 boolean expectedValue=true;
+	 Assert.assertEquals(actualValue, expectedValue);
+	  
 	}
 	
+	@Test(priority=8,enabled=true,invocationCount =2)
+	public void AddItems() throws InterruptedException
+	{
+		driver.navigate().to(Website);
+		for(int i=0;i<15;i++)
+		{
+		List <WebElement> AllItems= driver.findElements(By.className("prdocutname"));
+		int RandomItem=rand.nextInt(AllItems.size());
+		AllItems.get(RandomItem).click();
+		boolean OutOfStockMessage=driver.getPageSource().contains("Out of Stock");
+		boolean blockedProduct=driver.getCurrentUrl().contains("product_id=116");
+		if(!OutOfStockMessage&&!blockedProduct)
 	
+		{
+			WebElement AddToCartButton=driver.findElement(By.cssSelector(".cart"));
+			AddToCartButton.click();
+	        return;
+		}
+		
+		driver.navigate().back();	
+	    }
 	
+	}
+	@Test(priority=9,enabled=true)
+	public void UpdateItemsTest() throws InterruptedException
+	{
+		WebElement UpdateItemsCart=driver.findElement(By.cssSelector(".btn.btn-default.pull-right.mr10"));
+		UpdateItemsCart.click();
+	}
 	
+	@Test(priority=10,enabled=true)
+	public void CheckOutTest() throws InterruptedException
+	{
+		WebElement CheckOutButton= driver.findElement(By.id("cart_checkout1"));
+		CheckOutButton.click();
+		WebElement ConfirmOrderButton= driver.findElement(By.id("checkout_btn"));
+		ConfirmOrderButton.click();
+		Thread.sleep(3000);
+		//System.out.print(driver.getPageSource());
+		String ActualMessage=driver.findElement(By.className("maintext")).getText();
+		String ExpectedMessage ="YOUR ORDER HAS BEEN PROCESSED!";
+		Assert.assertEquals(ActualMessage, ExpectedMessage);
+	
+	}
 }
 	
 	

@@ -5,7 +5,7 @@
     <classes>
       <class name="AutomationDatabase.MyTestCases">
         <methods>
-          <include name="LoginTest"/>
+          <include name="CheckOutTest"/>
           <include name="SetUp"/>
         </methods>
       </class> <!-- AutomationDatabase.MyTestCases -->

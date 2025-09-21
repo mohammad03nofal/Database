@@ -18,6 +18,7 @@ public class MyData {
 	String Website="https://automationteststore.com/";
 	String SignUpPage="https://automationteststore.com/index.php?rt=account/create";
 	String LogoutPage="https://automationteststore.com/index.php?rt=account/logout";
+	String LoginPage="https://automationteststore.com/index.php?rt=account/login";
 	Connection conn;
 	Statement stmt;
 	ResultSet rs;
@@ -27,6 +28,7 @@ public class MyData {
 	String PhoneNumber;
 	String AddLine1;
 	String AddLine2;
+	String CustomerCountryInDataBase;
 	String PostCode;
 	String loginnam;
 	String pass;
@@ -52,7 +54,7 @@ public class MyData {
 		
 	}
 	
-	@Test(priority=3)
+	@Test(priority=3,enabled=true)
 	public void ReadData() throws SQLException
 	{
 		String query= "select * from customers where customerNumber=500";
@@ -68,6 +70,7 @@ public class MyData {
 			PhoneNumber=rs.getString("phone");
 			AddLine1=rs.getString("addressLine1");
 			AddLine2=rs.getString("addressLine2");
+			CustomerCountryInDataBase=rs.getString("country");
 			PostCode=rs.getString("postalCode");
 			loginnam=CustomerFirstName+CustomerLastName+customerNumberInDatabase;
 			pass="P@$sword";
@@ -88,10 +91,10 @@ public class MyData {
 		
 	}
 	
-	@Test(priority=2)
+	@Test(priority=2,enabled=true)
 	public void UpdateData() throws SQLException
 	{
-		String query= "update customers set contactFirstName='Rola' , country ='Sweden' where customerNumber=500";
+		String query= "update customers set contactFirstName='Nada' , country ='Jordan' where customerNumber=500";
 		stmt=conn.createStatement();
 		int updatedrow=stmt.executeUpdate(query);
 		

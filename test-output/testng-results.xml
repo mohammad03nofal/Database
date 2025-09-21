@@ -1,36 +1,52 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results ignored="2" total="7" passed="5" failed="0" skipped="0">
+<testng-results ignored="2" total="11" passed="9" failed="0" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2025-09-20T23:19:25 EET" name="Default suite" finished-at="2025-09-20T23:19:34 EET" duration-ms="9564">
+  <suite started-at="2025-09-21T22:51:31 EET" name="Default suite" finished-at="2025-09-21T22:51:59 EET" duration-ms="27710">
     <groups>
     </groups>
-    <test started-at="2025-09-20T23:19:25 EET" name="Default test" finished-at="2025-09-20T23:19:34 EET" duration-ms="9564">
+    <test started-at="2025-09-21T22:51:31 EET" name="Default test" finished-at="2025-09-21T22:51:59 EET" duration-ms="27710">
       <class name="AutomationDatabase.MyTestCases">
-        <test-method is-config="true" signature="SetUp()[pri:0, instance:AutomationDatabase.MyTestCases@4983159f]" started-at="2025-09-20T23:19:25 EET" name="SetUp" finished-at="2025-09-20T23:19:27 EET" duration-ms="2720" status="PASS">
+        <test-method is-config="true" signature="SetUp()[pri:0, instance:AutomationDatabase.MyTestCases@101639ae]" started-at="2025-09-21T22:51:31 EET" name="SetUp" finished-at="2025-09-21T22:51:34 EET" duration-ms="2937" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- SetUp -->
-        <test-method signature="AddRecord()[pri:1, instance:AutomationDatabase.MyTestCases@4983159f]" started-at="2025-09-20T23:19:27 EET" name="AddRecord" finished-at="2025-09-20T23:19:27 EET" duration-ms="34" status="PASS">
+        <test-method signature="AddRecord()[pri:1, instance:AutomationDatabase.MyTestCases@101639ae]" started-at="2025-09-21T22:51:34 EET" name="AddRecord" finished-at="2025-09-21T22:51:34 EET" duration-ms="39" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- AddRecord -->
-        <test-method signature="UpdateData()[pri:2, instance:AutomationDatabase.MyTestCases@4983159f]" started-at="2025-09-20T23:19:27 EET" name="UpdateData" finished-at="2025-09-20T23:19:28 EET" duration-ms="5" status="PASS">
+        <test-method signature="UpdateData()[pri:2, instance:AutomationDatabase.MyTestCases@101639ae]" started-at="2025-09-21T22:51:34 EET" name="UpdateData" finished-at="2025-09-21T22:51:34 EET" duration-ms="8" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- UpdateData -->
-        <test-method signature="ReadData()[pri:3, instance:AutomationDatabase.MyTestCases@4983159f]" started-at="2025-09-20T23:19:28 EET" name="ReadData" finished-at="2025-09-20T23:19:28 EET" duration-ms="65" status="PASS">
+        <test-method signature="ReadData()[pri:3, instance:AutomationDatabase.MyTestCases@101639ae]" started-at="2025-09-21T22:51:34 EET" name="ReadData" finished-at="2025-09-21T22:51:34 EET" duration-ms="82" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- ReadData -->
-        <test-method signature="DeleteData()[pri:4, instance:AutomationDatabase.MyTestCases@4983159f]" started-at="2025-09-20T23:19:28 EET" name="DeleteData" finished-at="2025-09-20T23:19:28 EET" duration-ms="6" status="PASS">
+        <test-method signature="DeleteData()[pri:4, instance:AutomationDatabase.MyTestCases@101639ae]" started-at="2025-09-21T22:51:34 EET" name="DeleteData" finished-at="2025-09-21T22:51:34 EET" duration-ms="8" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- DeleteData -->
-        <test-method signature="LoginTest()[pri:7, instance:AutomationDatabase.MyTestCases@4983159f]" started-at="2025-09-20T23:19:28 EET" name="LoginTest" finished-at="2025-09-20T23:19:34 EET" duration-ms="6660" status="PASS">
+        <test-method signature="LoginTest()[pri:7, instance:AutomationDatabase.MyTestCases@101639ae]" started-at="2025-09-21T22:51:34 EET" name="LoginTest" finished-at="2025-09-21T22:51:41 EET" duration-ms="6836" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- LoginTest -->
+        <test-method signature="AddItems()[pri:8, instance:AutomationDatabase.MyTestCases@101639ae]" started-at="2025-09-21T22:51:41 EET" name="AddItems" finished-at="2025-09-21T22:51:46 EET" duration-ms="5031" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- AddItems -->
+        <test-method signature="AddItems()[pri:8, instance:AutomationDatabase.MyTestCases@101639ae]" started-at="2025-09-21T22:51:46 EET" name="AddItems" finished-at="2025-09-21T22:51:50 EET" duration-ms="4261" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- AddItems -->
+        <test-method signature="UpdateItemsTest()[pri:9, instance:AutomationDatabase.MyTestCases@101639ae]" started-at="2025-09-21T22:51:50 EET" name="UpdateItemsTest" finished-at="2025-09-21T22:51:52 EET" duration-ms="1114" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- UpdateItemsTest -->
+        <test-method signature="CheckOutTest()[pri:10, instance:AutomationDatabase.MyTestCases@101639ae]" started-at="2025-09-21T22:51:52 EET" name="CheckOutTest" finished-at="2025-09-21T22:51:59 EET" duration-ms="7276" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- CheckOutTest -->
       </class> <!-- AutomationDatabase.MyTestCases -->
     </test> <!-- Default test -->
   </suite> <!-- Default suite -->
