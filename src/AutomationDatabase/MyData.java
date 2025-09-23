@@ -6,6 +6,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.time.Duration;
+import java.util.Random;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -33,6 +34,11 @@ public class MyData {
 	String loginnam;
 	String pass;
 	String confpass;
+	Random rand=new Random();
+	int RandomNumberForTheEmail1=rand.nextInt(4658);
+	int RandomNumberForTheEmail2=rand.nextInt(4652);
+	int RandomNumberForTheEmail=RandomNumberForTheEmail1*RandomNumberForTheEmail2-6000;
+	
   
 	@BeforeTest
 	public void SetUp() throws SQLException
@@ -66,13 +72,13 @@ public class MyData {
 			int customerNumberInDatabase=rs.getInt("customerNumber");
 		    CustomerFirstName=rs.getString("contactFirstName").toString().trim();
 			CustomerLastName=rs.getString("contactLastName").toString().trim();
-			Email=CustomerFirstName+CustomerLastName+"@gmail.com";
+			Email=CustomerFirstName+CustomerLastName+RandomNumberForTheEmail+"@gmail.com";
 			PhoneNumber=rs.getString("phone");
 			AddLine1=rs.getString("addressLine1");
 			AddLine2=rs.getString("addressLine2");
 			CustomerCountryInDataBase=rs.getString("country");
 			PostCode=rs.getString("postalCode");
-			loginnam=CustomerFirstName+CustomerLastName+customerNumberInDatabase;
+			loginnam=CustomerFirstName+CustomerLastName+RandomNumberForTheEmail;
 			pass="P@$sword";
 			confpass="P@$sword";
             //salesNumber=rs.getString("salesRepEmployeeNumber");

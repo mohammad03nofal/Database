@@ -24,11 +24,11 @@ public class MyTestCases extends MyData {
 	//String SignUpPage="https://automationteststore.com/index.php?rt=account/create";
 	//String LogoutPage="https://automationteststore.com/index.php?rt=account/logout";
 	//String LoginPage="https://automationteststore.com/index.php?rt=account/login";
-	Random rand=new Random();
+	
 
 	
 	
-	@Test(priority=5,enabled=false)
+	@Test(priority=5,enabled=true)
 	public void SignUpTest() throws InterruptedException, SQLException
 	{
 		driver.navigate().to(SignUpPage);
@@ -75,7 +75,7 @@ public class MyTestCases extends MyData {
 		//String actualValue=driver.findElement(By.id(TheCity))
 		    		
 	}
-@Test(priority=6,enabled=false)
+@Test(priority=6,enabled=true)
 	
 	public void logOutTest() throws InterruptedException
 	{
